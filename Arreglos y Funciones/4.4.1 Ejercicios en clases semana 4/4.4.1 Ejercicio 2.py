@@ -4,3 +4,4 @@
 #El arreglo poblado.
 #La suma por filas.
 #El promedio por columnas.
+print("hola mundo")
