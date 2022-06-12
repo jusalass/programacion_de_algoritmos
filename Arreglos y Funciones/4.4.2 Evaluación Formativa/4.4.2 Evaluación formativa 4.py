@@ -179,11 +179,10 @@ def anular_vuelo():
 def modificar_datos():
   print("Verificación de reserva:")
   try:
-    nombre = str(input("Ingrese nombre completo:\t"))
-    nombre = nombre.upper()
+    asiento = int(input("Ingrese asiento:\t"))
     rut = str(input("Ingrese RUT:\t\t"))
-    for i in arreglo[1]:
-      if i == nombre:
+    for i in arreglo[0]:
+      if i == "X":
         control_nombre = True
         break
       else:
@@ -196,14 +195,15 @@ def modificar_datos():
         control_rut = False
 
     if control_nombre == True and control_rut == True:
-      print("\nReserva encontrada")
-      index = arreglo[1].index(nombre)
-      nuevo_nombre = str(input("Ingrese nuevo nombre:\t"))
-      nuevo_nombre.upper()
-      arreglo[1][index] = nuevo_nombre
-
-      arreglo[3][index] = int(input("Ingrese nuevo teléfono:\t"))
-      print("\nUsuario modificado con éxito.")
+      print("\nReserva encontrada")      
+      opcion = int(input("Elija dato a modificar:\n1. Nombre\n2. Teléfono\nOpción: "))
+      if opcion == 1:
+        nuevo_nombre = int(input("Ingrese nuevo nombre:\t"))
+      
+        arreglo[1][asiento - 1] = nuevo_nombre
+      elif opcion == 2:
+        arreglo[3][asiento - 1] = int(input("Ingrese nuevo teléfono:\t"))
+        print("\nUsuario modificado con éxito.")
     elif control_nombre == False:
       print("Nombre no encontrado")
     elif control_rut == False:
