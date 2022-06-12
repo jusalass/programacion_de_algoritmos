@@ -49,35 +49,3 @@ for i in range(len(suma_filas)): #mostrar suma filas
 
 for i in range(len(lista_suma_columnas)):
     print("Suma columna: ",i ,":", round(lista_suma_columnas[i], 3))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
