@@ -30,7 +30,7 @@ def comprar_asiento():
   try:
     asiento = int(input("\nIngrese numero de asiento:\t"))
     if asiento > 0 and asiento <= 30 and arreglo[0][asiento - 1] != "X":
-        print("EL valor del asientodfsd: ",asiento," es:\t",asiento_normal)
+        print("EL valor del asiento: ",asiento," es:\t",asiento_normal)
         tipo_asiento = "normal"
     elif asiento > 30 and asiento <= 42 and arreglo[0][asiento - 1] != "X":
         print("EL valor del asiento: ",asiento," es:\t",asiento_vip)
@@ -89,46 +89,52 @@ def comprar_asiento():
     print("ERROR")
 
 def anular_vuelo():
-  asiento_eliminado = int(input("Ingrese asiento reservado:\t"))
-  opcion = int(input("¿Desea eliminar la reserva?\n1. Si\n2. No\Opción: "))
-  if opcion == 1:
-    if arreglo[0][asiento_eliminado - 1] == "X":
-      arreglo[0][asiento_eliminado - 1] = asiento_eliminado 
-      arreglo[1][asiento_eliminado - 1] = "X"
-      arreglo[2][asiento_eliminado - 1] = "X"
-      arreglo[3][asiento_eliminado - 1] = 0
-      arreglo[4][asiento_eliminado - 1] = "X"
-    else:
-      print("El asiento ", asiento_eliminado, "no está reservado\n")
+  try:
+    asiento_eliminado = int(input("Ingrese asiento reservado:\t"))
+    opcion = int(input("¿Desea eliminar la reserva?\n1. Si\n2. No\nOpción: "))
+    if opcion == 1:
+      if arreglo[0][asiento_eliminado - 1] == "X":
+        arreglo[0][asiento_eliminado - 1] = asiento_eliminado 
+        arreglo[1][asiento_eliminado - 1] = "X"
+        arreglo[2][asiento_eliminado - 1] = "X"
+        arreglo[3][asiento_eliminado - 1] = 0
+        arreglo[4][asiento_eliminado - 1] = "X"
+      else:
+        print("El asiento ", asiento_eliminado, "no está reservado\n")
+  except:
+    print("ERROR")
   
     
 def modificar_datos():
   print("Verificación de reserva:")
-  nombre = str(input("Ingrese nombre completo:\t"))
-  rut = str(input("Ingrese RUT:\t\t"))
-  for i in arreglo[1]:
-    if i == nombre:
-      control_nombre = True
-      break
-    else:
-      control_nombre = False
-  for i in arreglo[2]:
-    if i == rut:
-      control_rut = True
-      break
-    else:
-      control_rut = False
+  try:
+    nombre = str(input("Ingrese nombre completo:\t"))
+    rut = str(input("Ingrese RUT:\t\t"))
+    for i in arreglo[1]:
+      if i == nombre:
+        control_nombre = True
+        break
+      else:
+        control_nombre = False
+    for i in arreglo[2]:
+      if i == rut:
+        control_rut = True
+        break
+      else:
+        control_rut = False
 
-  if control_nombre == True and control_rut == True:
-    print("\nReserva encontrada")
-    index = arreglo[1].index(nombre)
-    arreglo[1][index] = str(input("Ingrese nuevo nombre:\t"))
-    arreglo[3][index] = int(input("Ingrese nuevo teléfono:\t"))
-    print("\nUsuario modificado con éxito.")
-  elif control_nombre == False:
-    print("Nombre no encontrado")
-  elif control_rut == False:
-    print("RUT no encontrado")
+    if control_nombre == True and control_rut == True:
+      print("\nReserva encontrada")
+      index = arreglo[1].index(nombre)
+      arreglo[1][index] = str(input("Ingrese nuevo nombre:\t"))
+      arreglo[3][index] = int(input("Ingrese nuevo teléfono:\t"))
+      print("\nUsuario modificado con éxito.")
+    elif control_nombre == False:
+      print("Nombre no encontrado")
+    elif control_rut == False:
+      print("RUT no encontrado")
+  except:
+    print("ERROR")
 
 
 #menu

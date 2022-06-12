@@ -98,6 +98,7 @@ def comprar_asiento():
   ver_asientos()
   try:
     asiento = int(input("\nIngrese numero de asiento:\t"))
+    print("Usuarios de BancoDuoc tienen 15% de descuento")
     if asiento > 0 and asiento <= 30 and arreglo[0][asiento - 1] != "X":
         print("EL valor del asiento: ",asiento," es:\t",asiento_normal)
         tipo_asiento = "normal"
